@@ -39,15 +39,18 @@ class Solution {
     {
         int max=amount+1;
         int[] dp=new int[amount+1];
-        Arrays.fill(dp,max);
-        dp[0]=0;
+        Arrays.fill(dp,max);//we fill the value in the array with maximum value.
+        dp[0]=0;//first amount of the array which is the base condition
+       // i is the amount which is the index of the array
         for(int i=1;i<=amount;i++){
+            //for making coins
             for(int j=0;j<coins.length;j++){
+                //if the coin is smaller than the amount
                 if(coins[j]<=i){
                     dp[i]=Math.min(dp[i],dp[i-coins[j]]+1);
                 }
             }
         }
-        return dp[amount]>amount?-1:dp[amount];
+        return dp[amount]>amount?-1:dp[amount];//if thr last value is large than the given amount then we cannot make the amount with the use of these coins.
     }
 }
