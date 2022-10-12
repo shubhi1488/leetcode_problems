@@ -25,3 +25,24 @@ class Solution {
         dfs(node.right,list);
     }
 }
+
+Iterative approach-
+ class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+      List<Integer>list=new ArrayList<Integer>();
+        Stack<TreeNode>rights=new Stack<TreeNode>();
+        while(root!=null){
+            list.add(root.val);
+            if(root.right!=null){
+                rights.push(root.right);
+            }
+            if(root.left==null && !rights.isEmpty()){
+                root=rights.pop();
+            }
+            else{
+                root=root.left;
+            }
+        }
+        return list;
+}
+}
