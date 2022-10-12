@@ -12,6 +12,7 @@ Output: [1,2,3]
 
 
 #code-----------------------------
+ recursive approach-
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer>list=new ArrayList<Integer>();//created the new list to store the values.
